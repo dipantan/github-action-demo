@@ -12,7 +12,7 @@ on:
 
 env:
   # appetize.io token for uploading builds to appetize.io for testing
-  APPETIZE_TOKEN: ${{ secrets.API_TOKEN }}
+  APPETIZE_TOKEN: tok_6amfqawl4pbuccoceaubbmrcae
 
   # Allows you to run this workflow manually from the Actions tab
   # workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create blank file and insert text
-        run: echo ${{ secrets.API_TOKEN }} > blank.txt
+        run: echo ${{ env.API_TOKEN }} > blank.txt
   show:
     needs: create
     runs-on: ubuntu-latest
