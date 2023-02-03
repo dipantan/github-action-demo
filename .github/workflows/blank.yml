@@ -14,7 +14,6 @@ on:
 jobs:
   create:
     runs-on: ubuntu-latest
-    environment: main
     steps:
       - name: Create blank file and insert text
         run: echo ${{ secrets.API_TOKEN }}
