@@ -17,4 +17,4 @@ jobs:
     environment: main
     steps:
       - name: Create blank file and insert text
-        run: echo ${{ secrets }}
+        run: echo ${{ secrets.API_TOKEN }}
