@@ -2,7 +2,7 @@
 
 name: CI
 env:
-  API_TOKEN: ${{ secrets.API_TOKEN }}
+  TOKEN: ${{ secrets.API_TOKEN }}
 
 # Controls when the workflow will run
 on:
@@ -18,4 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create blank file and insert text
-        run: echo $API_TOKEN
+        # print env var
+        run: echo $TOKEN
