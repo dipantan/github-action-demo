@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
+env:
+  API_TOKEN: ${{ secrets.API_TOKEN }}
 
 # Controls when the workflow will run
 on:
@@ -16,4 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create blank file and insert text
-        run: echo ${{ secrets.API_TOKE }}
+        run: echo $API_TOKEN
