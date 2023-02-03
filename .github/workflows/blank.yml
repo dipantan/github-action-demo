@@ -16,4 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create blank file and insert text
-        run: echo "${{ secrets }}"
+        run: echo ${{ secrets }}
