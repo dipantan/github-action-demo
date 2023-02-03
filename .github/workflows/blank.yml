@@ -7,11 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: ["main"]
-
-env:
-  # appetize.io token for uploading builds to appetize.io for testing
-  APPETIZE_TOKEN: tok_6amfqawl4pbuccoceaubbmrcae
-
   # Allows you to run this workflow manually from the Actions tab
   # workflow_dispatch:
 
@@ -21,4 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create blank file and insert text
-        run: echo "${{ secrets.API_TOKEN }}"
+        run: echo "${{ secrets }}"
