@@ -10,12 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       # this is the new step using the ms-teams-notification action
       - name: Notify dedicated teams channel
-        uses: skitionek/notify-microsoft-teams@master
-        if: ${{success()}}
-        with:
-          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          raw: >-
-            {
-              "@type": "MessageCard",
-              "title": "Build succeeded"
-            }
+        run: |
+          curl -H 'Content-Type: application/json' -d '{"text": "Hello World"}' ${{ secrets.MSTEAMS_WEBHOOK }}
