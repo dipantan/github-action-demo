@@ -1,33 +1,19 @@
-name: Check notification
+name: MS Teams Notification
 
-on: workflow_dispatch
+on: [push, pull_request]
 
 jobs:
-  with_raw:
-    name: One with raw data
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Microsoft Teams Notification
-        uses: skitionek/notify-microsoft-teams@master
-        if: always()
-        with:
-          webhook: ${{ secrets.MSTEAMS_WEBHOOK }}
-          title: "Test notification"
-          text: "This is a test notification"
-          color: "00FF00"
-          raw: true
-  without_raw:  
-    name: One without raw data
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Microsoft Teams Notification
-        uses: skitionek/notify-microsoft-teams@master
-        if: always()
-        with:
-          webhook: ${{ secrets.MSTEAMS_WEBHOOK }}
-          title: "Test notification"
-          text: "This is a test notification"
-          color: "00FF00"
 
+    steps:
+      - uses: actions/checkout@v2
+      # this is the new step using the ms-teams-notification action
+      - name: Notify dedicated teams channel
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
+          notification-summary: Your custom notification message
+          notification-color: 17a2b8
+          timezone: Asia/Kolkata
