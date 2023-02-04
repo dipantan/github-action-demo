@@ -17,6 +17,5 @@ jobs:
           raw: >-
             {
               "@type": "MessageCard",
-              "@context": "http://schema.org/extensions",
               "title": "Build succeeded"
             }
