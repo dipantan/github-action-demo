@@ -11,6 +11,7 @@ jobs:
       # this is the new step using the ms-teams-notification action
       - name: Notify dedicated teams channel
         uses: thechetantalwar/teams-notify@v2
+        if: ${{success()}}
         with:
           teams_webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
           message: "The status of the build is ${{ job.status }}."
