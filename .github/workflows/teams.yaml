@@ -11,4 +11,5 @@ jobs:
       # this is the new step using the ms-teams-notification action
       - name: Notify dedicated teams channel
         run: |
-          curl -H 'Content-Type: application/json' -d '{"text": "Hello World"}' ${{ secrets.MSTEAMS_WEBHOOK }}
+          echo '{"type": "AdaptiveCard","body": [{"type": "TextBlock","text": "Hello World!"}]}' > card.json
+          curl -H 'Content-Type: application/json' -d @card.json ${{ secrets.MSTEAMS_WEBHOOK }}
