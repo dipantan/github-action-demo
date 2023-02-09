@@ -15,3 +15,4 @@ jobs:
             echo "its 12";
           else 
             echo "not 12";
+          fi
