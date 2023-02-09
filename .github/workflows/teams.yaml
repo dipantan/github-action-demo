@@ -11,4 +11,7 @@ jobs:
       # this is the new step using the ms-teams-notification action
       - name: Notify dedicated teams channel
         run: |
-          echo ${{ vars.ENV_CONTEXT_VAR }}
+          if ["${{ vars.ENV_CONTEXT_VAR }}" == 12]; then
+            echo "its 12";
+          else 
+            echo "not 12";
